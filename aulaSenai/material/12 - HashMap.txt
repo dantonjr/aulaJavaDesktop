@@ -1,0 +1,89 @@
+- Criar um pacote: edu.senai.exhash;
+
+- Criar uma classe Animal:
+  - Implementar os seguintes atributos:
+    - private String nome;
+    - private int idade;
+    - private String raca;
+    - private float peso;
+  - Implementar os métodos get e set.
+
+- Criar uma classe principal UsaAnimal
+
+- A definição de um HashMap (Usado para armazenar objetos com chave)
+- A sintaxe é (não esquecer de importar os pacotes java.util.HashMap, java.util.Map ou java.util.TreeMap conforme o caso):
+  - HashMap animais = new HashMap(); // Utiliza diretamente o objeto HashMap
+    ou
+  - Map animais = new HashMap(); // A partir da interface Map
+  - TreeMap treeMapAnimais = new TreeMap(animais); // Usado para ordenar um HashMap
+
+- Implementar a leitura dos dados como no exemplo abaixo:
+	int repeticoes = 3; // Facilitador para o número de repetições do for
+	Animal animal;
+	BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+	HashMap animais = new HashMap();
+	for (int i = 1; i <= repeticoes; i++) {
+		animal = new Animal();
+		System.out.print("Informe a Raça.......: ");
+		animal.setRaca(teclado.readLine());
+		System.out.print("Informe Nome.......: ");
+		animal.setNome(teclado.readLine());
+		System.out.print("Informe Idade......: ");
+		animal.setIdade(Integer.parseInt(teclado.readLine()));
+		System.out.print("Informe Peso.......: ");
+		animal.setPeso(Float.parseFloat(teclado.readLine()));
+		animais.put(new Integer(i), animal); // Adiciona o animal na lista
+	}
+
+- Implementar a busca pelo elemento como abaixo:
+    System.out.println("Informe o código do animal (0 termina)..: ");
+    int opcao = Integer.parseInt(teclado.readLine());
+    while(opcao != 0) {
+    	animal = (Animal) animais.get(new Integer(opcao));
+    	if(animal == null) {
+    		System.out.println("Animal não encontrado...");
+    	}
+    	else {
+    		System.out.println("Nome....: " + animal.getNome() + "\nIdade...: " + animal.getIdade() + "\nPeso....: " + animal.getPeso() + "\nRaça....: " + animal.getRaca());
+    	}
+	    System.out.println("Informe o código do animal (>0 e <" + repeticoes + ")");
+	    opcao = Integer.parseInt(teclado.readLine());
+    }
+
+- Abaixo um exemplo usando o nome do animal para inserir no HashMap:
+	public static void main(String[] args) throws IOException {
+		Animal animal;
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		HashMap animais = new HashMap();
+		System.out.print("Informe o nome do animal (fim termina cadastro)....: ");
+		String nome = teclado.readLine();
+		while(!nome.equalsIgnoreCase("fim")) {
+			animal = new Animal();
+			animal.setNome(nome);
+			System.out.print("Informe a Raça.......: ");
+			animal.setRaca(teclado.readLine());
+			System.out.print("Informe Idade......: ");
+			animal.setIdade(Integer.parseInt(teclado.readLine()));
+			System.out.print("Informe Peso.......: ");
+			animal.setPeso(Float.parseFloat(teclado.readLine()));
+			animais.put(nome.toUpperCase(), animal); // Adiciona o animal na lista (maiúsculo para pesquisa)
+			System.out.print("Informe o nome do animal (fim termina cadastro)....: ");
+			nome = teclado.readLine();
+		}
+		System.out.print("Informe o nome do animal (fim termina busca)....: ");
+		nome = teclado.readLine();
+		while(!nome.equalsIgnoreCase("fim")) {
+	    		animal = (Animal) animais.get(nome.toUpperCase());
+		    	if(animal == null) {
+	    			System.out.println("Animal não encontrado...");
+		    	}
+		    	else {
+	    			System.out.println("Nome....: " + animal.getNome() + "\nIdade...: " + animal.getIdade() + "\nPeso....: " + animal.getPeso() + "\nRaça....: " + animal.getRaca());
+		    	}
+			System.out.print("Informe o nome do animal (fim termina busca)....: ");
+			nome = teclado.readLine();
+		}
+		System.out.println("Animais.............: " + animais);
+		TreeMap animaisOrdenados = new TreeMap(animais);
+		System.out.println("Animais ordenados..: " + animaisOrdenados);
+	}

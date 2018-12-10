@@ -1,0 +1,57 @@
+- Criar uma classe AgenciaException que extends Exception
+	public class AgenciaException extends Exception {
+
+		private static final long serialVersionUID = 8015224619790345595L;
+
+		public AgenciaException(String msg){
+			super(msg);
+		}
+	}
+
+- Na classe Agencia:
+  - Implementar o método depositar:
+	public boolean depositar(int numCta, double valor) throws AgenciaException 
+	{
+		ContaCorrente c = (ContaCorrente) contas.get(new Integer(numCta));
+		if (!(c == null))
+		{
+			c.setSaldo(c.getSaldo() + valor);
+			return true;
+		}
+		throw new AgenciaException("Número da Conta não existe...");
+	}
+
+  - Implementar o método verificaSaldo, lançando uma exception no caso de haver algum problema:
+	public double verificaSaldo(int num, String senha) throws AgenciaException
+	{
+		ContaCorrente c = (ContaCorrente) contas.get(new Integer(num));
+		if (!(c == null))
+		{
+			if (c.getSenha().equals(senha))
+			{
+				return c.getSaldo();
+			}
+			throw new AgenciaException("Senha inválida...");
+		}
+		throw new AgenciaException("Número da Conta não existe...");
+	}
+
+  - Implementar o método sacar:
+	public boolean sacar(int numCta, String senha, double valor) throws AgenciaException
+	{
+		ContaCorrente c = (ContaCorrente) contas.get(new Integer(numCta));
+		if (!(c == null))
+		{
+			if (c.getSenha().equals(senha))
+			{
+				if (c.getSaldo() >= valor)
+				{
+					c.setSaldo(c.getSaldo() - valor);
+					return true;
+				}
+				throw new AgenciaException("Saldo insuficiente...");
+			}
+			throw new AgenciaException("Senha inválida...");
+		}
+		throw new AgenciaException("Número da Conta não existe...");
+	}

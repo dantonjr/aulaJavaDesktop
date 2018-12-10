@@ -1,0 +1,40 @@
+- Criar um pacote: edu.senai.exvetor;
+
+- Criar uma classe Pessoa:
+  - Implementar os seguintes atributos:
+    - private String nome;
+    - private int idade;
+    - private String cpf;
+  - Implementar os métodos get e set.
+
+- Declaração do Vetor:
+  - Sintaxe:
+    - tipo [] nomeVetor = new tipo[quantidade];
+    - tipo [] nomeVetor = {Inicializações};
+  - Exemplo:
+    - Pessoa [] pessoas = new Pessoa[5];
+    - int [] inteiros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+- Implementar uma classe principal CincoPessoas que armazenas as pessoas em um vetor.
+	public static void main(String[] args) throws IOException
+	{
+        	BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+	        Pessoa[] pessoas = new Pessoa[5];
+        	for (int iPessoa = 0; iPessoa < pessoas.length; iPessoa++)
+		{
+	            System.out.print("Informe o nome pessoa " + (iPessoa + 1) + "....: ");
+	            Pessoa p = new Pessoa();
+        	    p.setNome(teclado.readLine());
+	            pessoas[iPessoa] = p;
+        	}
+	        for (int iPessoa = 0; iPessoa < 5; iPessoa++)
+		{
+			System.out.println("Olá " + pessoas[iPessoa].getNome() + ", bom dia!");
+		}
+	}
+  - Setar os demais dados de cada pessoa.
+
+- Declaração da Matriz:
+  - Exemplos:
+    - int[][] x = new int[2][2];
+    - int[][] y = {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};

@@ -1,0 +1,116 @@
+- Para fazer a leitura do teclado, usamos o BufferReader:
+  - BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+  - Crie uma Classe (LeTeclado) onde o método main seja:
+
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		String nome;
+		System.out.print("Informe seu nome: ");
+		nome = teclado.readLine();
+		System.out.println("Olá " + nome + ", bem vindo ao mundo Java!");
+	}
+
+- Tipos de dados em Java
+  - O Java possui 8 tipos primitivos de dados:
+    - 1 caracter
+    - 1 lógico
+    - 2 reais (float e double)
+    - 4 inteiros (byte, short, int e long)
+
+- Conversão de tipos:
+  - Para a conversão de dados, utilizamos os métodos estáticos das classes correspondentes aos tipos de dados (Float, Integer, Byte, etc.):
+    - float valFloat = Float.parseFloat(valorStr);
+    - double valDouble = Double.parseDouble(valorStr);
+    - byte valByte = Byte.parseByte(valorStr);
+    - short valShort = Short.parseShort(valorStr);
+    - int valInt = Integer.parseInt(valorStr);
+    - long valLong = Long.parseLong(valorStr);
+  - Método estático: é o método que pode ser chamado sem a necessidade de instanciar um objeto da classe. É referenciado pelo nome da classe, ex: 
+    - Classe.metodo().
+  - Abaixo temos um exemplo do método main para a conversão de dados:
+
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		String valorStr;
+		System.out.print("Informe o valor...: ");
+		valorStr = teclado.readLine();
+		float valFloat = Float.parseFloat(valorStr);
+		double valDouble = Double.parseDouble(valorStr);
+		byte valByte = Byte.parseByte(valorStr);
+		short valShort = Short.parseShort(valorStr);
+		int valInt = Integer.parseInt(valorStr);
+		long valLong = Long.parseLong(valorStr);
+		boolean valBool = Boolean.parseBoolean(valorStr);
+		System.out.println("Valor Booleano " + valBool);
+		System.out.println("Valor Float " + valFloat);
+		System.out.println("Valor Double " + valDouble);
+		System.out.println("Valor Byte " + valByte);
+		System.out.println("Valor Short " + valShort);
+		System.out.println("Valor Int " + valInt);
+		System.out.println("Valor Long " + valLong);
+	}
+
+- Pode-se utilizar os métodos das classes para obter valor máximo, mínimo, converter para outra base, etc.:
+  - Abaixo o exemplo do uso de MAX_VALUE, MIN_VALUE e conversão de bases:
+
+	public static void main(String[] args) throws NumberFormatException, IOException
+	{
+		int maximo = Integer.MAX_VALUE,
+		    minimo = Integer.MIN_VALUE;
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		long valorLongo;
+		System.out.println("Maior Valor Inteiro (int)...: " + maximo);
+		System.out.println("Menor Valor Inteiro (int)...: " + minimo);
+		System.out.println("Binário.....................: " + Integer.toBinaryString(maximo));
+		System.out.println("Octal.......................: " + Integer.toOctalString(maximo));
+		System.out.println("Hexadecimal.................: " + Integer.toHexString(maximo).toUpperCase());
+		System.out.print("Informe um valor (long).....: ");
+		valorLongo = Integer.parseInt(teclado.readLine());
+		System.out.println("Valor Lido..................: " + valorLongo);
+		System.out.println("Binário.....................: " + Long.toBinaryString(valorLongo));
+		System.out.println("Octal.......................: " + Long.toOctalString(valorLongo));
+		System.out.println("Hexadecimal.................: " + Long.toHexString(valorLongo).toUpperCase());
+	}
+
+- Exemplo com as faixas de valores dos tipos de dados.
+	public static void main(String[] args) {
+		byte minByte = Byte.MIN_VALUE,
+		     maxByte = Byte.MAX_VALUE;
+
+		short minShort = Short.MIN_VALUE,
+		      maxShort = Short.MAX_VALUE;
+
+		int minInt = Integer.MIN_VALUE,
+		    maxInt = Integer.MAX_VALUE;
+
+		long minLong = Long.MIN_VALUE,
+		     maxLong = Long.MAX_VALUE;
+
+		float minFloat = Float.MIN_VALUE,
+		      maxFloat = Float.MAX_VALUE;
+
+		double minDouble = Double.MIN_VALUE,
+		       maxDouble = Double.MAX_VALUE;
+
+		System.out.println("Tipos primitivos do Java\nInteiros\nByte");
+		System.out.println("\t Máximo: " + maxByte);
+		System.out.println("\t Mínimo: " + minByte);
+		System.out.println("Short");
+		System.out.println("\t Máximo: " + maxShort);
+		System.out.println("\t Mínimo: " + minShort);
+		System.out.println("Int");
+		System.out.println("\t Máximo: " + maxInt);
+		System.out.println("\t Mínimo: " + minInt);
+		System.out.println("Long");
+		System.out.println("\t Máximo: " + maxLong);
+		System.out.println("\t Mínimo: " + minLong);
+		System.out.println("\nReais\nFloat");
+		System.out.println("\t Máximo: " + maxFloat);
+		System.out.println("\t Mínimo: " + minFloat);
+		System.out.println("Double");
+		System.out.println("\t Máximo: " + maxDouble);
+		System.out.println("\t Mínimo: " + minDouble);
+		System.out.println("\nCaracter");
+	}

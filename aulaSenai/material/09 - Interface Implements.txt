@@ -1,0 +1,34 @@
+Interfaces
+
+- Criar um pacote chamado: edu.senai.exinterface
+
+- Criar uma interface:
+  - File/New/Interface
+  - Na janela que se abre, dê o nome da interface a ser criada, neste caso ITarifacao
+  - Clique Finish
+  - Definir na interface o padrão para o método calculaConta:
+    - public abstract double calculaConta();
+
+- Criar uma classe ContaLuz que implementa a interface
+  - Classe ContaLuz (implements) a Interface, repare na declaração dos métodos.
+    - public class ContaLuz implements ITarifacao
+  - Declarar os atributos:
+    - private double consumo;
+    - private double vlrKW;
+  - Implementar os métodos get e set.
+  - Fazer a implementação do cálculo da conta de Luz.
+    - return getConsumo() * getVlrKW();
+
+- Criar uma classe ContaTelefone que implementa a interface
+  - Classe ContaTelefone (implements) a Interface, repare na declaração dos métodos.
+    - public class ContaTelefone implements ITarifacao
+  - Declarar os atributos:
+    - private double valorMinuto;
+    - private int totalMinutos;
+    - private double valorInterurbano;
+    - private double servicos;
+  - Implementar os métodos get e set.
+  - Fazer a implementação do cálculo da conta de Telefone.
+    - return (getValorMinuto() * getTotalMinutos()) + getValorInterurbano() + getServicos();
+
+- Implementar o programa principal para instanciar os objetos.

@@ -1,0 +1,99 @@
+Construtores
+
+- Criar uma classe chamada Pessoa
+  - Definir os seguintes atributos:
+    - private String nome;
+    - private String endereco;
+  - Implementar os métodos get e set
+
+- Criar um construtor para a classe (construtores são "métodos" que possuem o mesmo nome da classe):
+	public Pessoa()
+	{
+		setNome("Nome não definido");
+		setEndereco("Endereço não informado");
+	}
+- Adicionar outros "métodos" construtores alterando os parâmetros:
+  - Inicializando o nome:
+	public Pessoa(String nome)
+	{
+		setNome(nome);
+	}
+  - Inicializando o nome e o endereço:
+	public Pessoa(String nome, String endereco)
+	{
+		setNome(nome);
+		setEndereco(endereco);
+	}
+
+- Avaliar o comportamento da definição anterior, criando uma classe UsaPessoa contendo o seguinte código:
+	public static void main(String[] args)
+	{
+		Pessoa pessoaSimples = new Pessoa();
+		System.out.println("Simples");
+		System.out.println("\tNome......: " + pessoaSimples.getNome());
+		System.out.println("\tEndereço..: " + pessoaSimples.getEndereco());
+		Pessoa pessoaNome = new Pessoa("Danton Junior");
+		System.out.println("Nome");
+		System.out.println("\tNome......: " + pessoaNome.getNome());
+		System.out.println("\tEndereço..: " + pessoaNome.getEndereco());
+		Pessoa pessoaCompleta = new Pessoa("Danton Junior", "Blumenau");
+		System.out.println("Completa");
+		System.out.println("\tNome......: " + pessoaCompleta.getNome());
+		System.out.println("\tEndereço..: " + pessoaCompleta.getEndereco());
+        
+	}
+
+- Criar a classe PessoaFisica que herda Pessoa
+  - Definir os seguintes atributos:
+    - private byte idade;
+    - private char sexo;
+    - private String cpf;
+  - Implementar os métodos get e set
+  - Implementar o construtor da classe, utilizar a chamada super(), para invocar o construtor da classe pai.
+	public PessoaFisica()
+	{
+		super();
+		setIdade((byte) 0);
+		setSexo('M');
+		setCpf("000.000.000-00");
+	}
+  - Adicionar outros métodos construtores alterando os parâmetros, implementar a chamada super para invocar o constructor da classe pai:
+	public PessoaFisica(String nome, byte idade, char sexo)
+	{
+		super(nome);
+		setIdade(idade);
+		setSexo(sexo);
+	}
+    - Inicializando todos os parâmetros:
+	public PessoaFisica(String nome, String endereco, byte idade, char sexo, String cpf)
+	{
+		super(nome, endereco);
+		setIdade(idade);
+		setSexo(sexo);
+		setCpf(cpf);
+	}
+- Avaliar o comportamento definido com a implementação dos construtores:
+	public static void main(String[] args)
+	{
+	        PessoaFisica pessoaSimples = new PessoaFisica();
+	        System.out.println("Pessoa Física Simples");
+        	System.out.println("\tNome.......: " + pessoaSimples.getNome());
+	        System.out.println("\tEndereço...: " + pessoaSimples.getEndereco());
+        	System.out.println("\tCPF........: " + pessoaSimples.getCpf());
+	        System.out.println("\tSexo.......: " + pessoaSimples.getSexo());
+        	System.out.println("\tIdade......: " + pessoaSimples.getIdade());
+	        PessoaFisica pessoaNome = new PessoaFisica("Danton Junior", (byte) 30, 'M');
+	        System.out.println("Pessoa Física Nome");
+        	System.out.println("\tNome.......: " + pessoaNome.getNome());
+	        System.out.println("\tEndereço...: " + pessoaNome.getEndereco());
+	        System.out.println("\tCPF........: " + pessoaNome.getCpf());
+        	System.out.println("\tSexo.......: " + pessoaNome.getSexo());
+	        System.out.println("\tIdade......: " + pessoaNome.getIdade());
+        	PessoaFisica pessoaCompleta = new PessoaFisica("Danton Junior", "Blumenau", (byte) 30, 'M', "123.456.789-10");
+	        System.out.println("Pessoa Completa");
+        	System.out.println("\tNome.......: " + pessoaCompleta.getNome());
+	        System.out.println("\tEndereço...: " + pessoaCompleta.getEndereco());
+        	System.out.println("\tCPF........: " + pessoaCompleta.getCpf());
+	        System.out.println("\tSexo.......: " + pessoaCompleta.getSexo());
+        	System.out.println("\tIdade......: " + pessoaCompleta.getIdade());
+	}

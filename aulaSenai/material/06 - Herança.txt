@@ -1,0 +1,124 @@
+Herança
+
+- Criar um pacote chamado edu.senai.veiculos
+- Criar uma classe chamada Veiculo, setando a mesma como abstrata (abstract) - O abstract impede que se instancie objetos do tipo da classe.
+  public abstract class Veiculo
+  - Declarar os seguintes atributos para a classe:
+    - private String placa;
+    - private String cor;
+    - private double peso;
+  - Implementar os métodos get e set
+    - Alterar o método getPeso() para:
+	public String getPeso()
+	{
+		return peso / 1000 + " Tonelada(s)";
+	}
+
+- Criar uma classe chamada Pesado
+  - Herdar as características de Veiculo, para isso usamos o "extends"
+	public class Pesado extends Veiculo
+	{
+	   ...
+	}
+  - Declarar os atributos:
+    - private double capacidadeCarga;
+    - private byte qtdEixos;
+  - Implementar os métodos get e set
+  - Implementar um método pesoEixo() com o seguinte código:
+	public double pesoEixo()
+	{
+		return getCapacidadeCarga() / getQtdEixos();
+	}
+
+- Criar uma classe chamada Leve
+  - Herdar as características de Veiculo, (usar extends)
+	public class Leve extends Veiculo
+	{
+	   ...
+	}
+  - Declarar os atributos:
+    - private byte numeroPortas;
+    - private String combustivel;
+    - private float consumo;
+    - private int capacidadeTanque;
+  - Implementar os métodos get e set
+  - Implementar um método autonomia() com o seguinte código:
+	public float autonomia()
+	{
+		return getCapacidadeTanque() * getConsumo();
+	}
+
+- Criar uma classe chamada Moto
+  - Herdar as características de Veiculo, (usar extends), especificar que a classe é final - ninguém pode herdar dela.
+	public final class Moto extends Veiculo
+	{
+	   ...
+	}
+  - Declarar o atributo:
+    - private int cilindradas;
+  - Implementar os métodos get e set
+
+- Implementar os métodos toString() das classes: Leve, Pesado e Moto, de forma que retornem as informações do objeto.
+
+  - Classe Leve:
+	public String toString() {
+		return "Classe: " + this.getClass().getName() + "\n\tPlaca: " + getPlaca() + "\n\tPeso: " + getPeso() + "\n\tCor: " + getCor() + "\n\tQtd. Portas: " + getNumeroPortas() + "\n\tCombustível: " + getCombustivel() + "\n\tConsumo: " + getConsumo() + "\n\tCapacidade Tanque: " + getCapacidadeTanque() + "\n\tAutonomia: " + autonomia();
+	}
+
+  - Classe Pesado:
+	public String toString() {
+		return "Classe: " + this.getClass().getName() + "\n\tPlaca: " + getPlaca() + "\n\tPeso: " + getPeso() + "\n\tCor: " + getCor() + "\n\tQtd. Eixos: " + getQtdEixos() + "\n\tCapacidade Carga: " + getCapacidadeCarga() + "\n\tPeso Eixo: " + pesoEixo();
+	}
+
+  - Classe Moto:
+	public String toString() {
+		return "Classe: " + this.getClass().getName() + "\n\tPlaca: " + getPlaca() + "\n\tPeso: " + getPeso() + "\n\tCor: " + getCor() + "\n\tCilindradas: " + getCilindradas();
+	}
+
+- Implementar uma classe UsaVeiculo e criar os 3 tipos de objetos verificando os métodos de cada um:
+	public class UsaVeiculo
+	{
+		public static void main(String[] args)
+		{
+			Leve carro = new Leve();
+			Pesado caminhao = new Pesado();
+			Moto moto = new Moto();
+			System.out.println("Valores do carro...");
+			carro.setCor("Azul");
+			carro.setPeso(600);
+			carro.setPlaca("ILL-2137");
+			carro.setCombustivel("Gasolina");
+			carro.setConsumo((float) 12.7);
+			carro.setNumeroPortas((byte) 5);
+			carro.setCapacidadeTanque(45);
+			System.out.println("  Cor...........: " + carro.getCor());
+			System.out.println("  Peso..........: " + carro.getPeso());
+			System.out.println("  Placa.........: " + carro.getPlaca());
+			System.out.println("  Combustível...: " + carro.getCombustivel());
+			System.out.println("  Consumo.......: " + carro.getConsumo());
+			System.out.println("  Portas........: " + carro.getNumeroPortas());
+			System.out.println("  Tanque........: " + carro.getCapacidadeTanque());
+			System.out.println("  Autonomia.....: " + carro.autonomia());
+			System.out.println("Valores do caminhao...");
+			caminhao.setCor("Verde");
+			caminhao.setPeso(23500);
+			caminhao.setPlaca("CXT-0931");
+			caminhao.setCapacidadeCarga(30000);
+			caminhao.setQtdEixos((byte) 6);
+			System.out.println("  Cor...........: " + caminhao.getCor());
+			System.out.println("  Peso..........: " + caminhao.getPeso());
+			System.out.println("  Placa.........: " + caminhao.getPlaca());
+			System.out.println("  Carga.........: " + caminhao.getCapacidadeCarga());
+			System.out.println("  Eixos.........: " + caminhao.getQtdEixos());
+			System.out.println("  Peso por Eixo.: " + caminhao.pesoEixo());
+			System.out.println("Valores da moto...");
+			moto.setCor("Vermelho");
+			moto.setPeso(340);
+			moto.setPlaca("AAB-0911");
+			moto.setCilindradas(1100);
+			System.out.println("  Cor...........: " + moto.getCor());
+			System.out.println("  Peso..........: " + moto.getPeso());
+			System.out.println("  Placa.........: " + moto.getPlaca());
+			System.out.println("  Cilindradas...: " + moto.getCilindradas());
+		}
+	}

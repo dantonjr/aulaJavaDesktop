@@ -1,0 +1,9 @@
+1) Definir Enumerador
+2) Definir itens enumerativos
+
+----
+
+3) Criar parâmetros dos itens enumerativos
+4) Criar atributos (private + final) para armazenar os parâmetros
+5) Criar getters e Setters (somente get pois set não existe em final)
+6) Criar o construtor do Enumerador (private) e recebe os parâmetros

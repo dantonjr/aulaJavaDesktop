@@ -1,0 +1,44 @@
+- Criar um pacote: edu.senai.exlista;
+
+- Criar uma classe Animal:
+  - Implementar os seguintes atributos:
+    - private String nome;
+    - private int idade;
+    - private String raca;
+    - private float peso;
+  - Implementar os métodos get e set.
+
+- Criar uma classe principal UsaAnimalLista
+
+- A definição de um ArrayListy (Cria uma lista de objetos)
+- A sintaxe é (não esquecer de importar os pacotes java.util.ArrayList e java.util.List - verifique se é do pacote JAVA.UTIL)
+  - ArrayList animais = new ArrayList(); // Utiliza diretamente o objeto ArrayList
+    ou
+  - List animais = new ArrayList(); // A partir da interface List
+	int repeticoes = 3; // Facilitador para o número de repetições do for
+	Animal animal;
+	BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+	ArrayList animais = new ArrayList();
+	for (int i = 1; i <= repeticoes; i++) {
+		animal = new Animal();
+		System.out.print("Informe a Raça.......: ");
+		animal.setRaca(teclado.readLine());
+		System.out.print("Informe Nome.......: ");
+		animal.setNome(teclado.readLine());
+		System.out.print("Informe Idade......: ");
+		animal.setIdade(Integer.parseInt(teclado.readLine()));
+		System.out.print("Informe Peso.......: ");
+		animal.setPeso(Float.parseFloat(teclado.readLine()));
+		animais.add(animal); // Adiciona o animal na lista
+	}
+
+- As listas podem ser pesquisadas através de iterações, a sintaxe pode ser vista no for abaixo:
+	for (Iterator iter = collection.iterator(); iter.hasNext();) {
+		type element = (type) iter.next();
+	}
+
+- Complementando o exemplo poderíamos ter o código abaixo para mostrar todos os elementos da lista
+	for (Iterator iAnimais = animais.iterator(); iAnimais.hasNext();) {
+		Animal ani = (Animal) iAnimais.next();
+		System.out.println("Nome....: " + ani.getNome() + "\nIdade...: " + ani.getIdade() + "\nPeso....: " + ani.getPeso() + "\nRaça....: " + ani.getRaca());
+	}

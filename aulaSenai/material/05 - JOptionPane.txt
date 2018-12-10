@@ -1,0 +1,110 @@
+JOptionPane para exibição de mensagens e entrada de dados personalizada (Modo Gráfico):
+
+- Pode-se ter mensagens de saída ou entrada de dados.
+
+- Para saída de dados usamos o showMessageDialog
+  - Sintaxe:
+    public void JOptionPane.showMessageDialog(Component pai, Object mensagem [, String titulo] [, int tipoMensagem] [, Icon icone]);
+
+  - Os tipos de mensagens (saída) são:
+    - JOptionPane.PLAIN_MESSAGE
+    - JOptionPane.INFORMATION_MESSAGE
+    - JOptionPane.ERROR_MESSAGE
+    - JOptionPane.QUESTION_MESSAGE
+    - JOptionPane.WARNING_MESSAGE
+
+  - Exemplos:
+    - System.out.println("Tipos de mensagens");
+    - JOptionPane.showMessageDialog(null, "Esta é uma mensagem plana", "Mensagem: Plana", JOptionPane.PLAIN_MESSAGE);
+    - JOptionPane.showMessageDialog(null, "Esta é uma mensagem informativa", "Mensagem: Informativa", JOptionPane.INFORMATION_MESSAGE);
+    - JOptionPane.showMessageDialog(null, "Esta é uma mensagem de erro", "Mensagem: Erro", JOptionPane.ERROR_MESSAGE);
+    - JOptionPane.showMessageDialog(null, "Esta é uma mensagem de questionamento", "Mensagem: Questionamento", JOptionPane.QUESTION_MESSAGE);
+    - JOptionPane.showMessageDialog(null, "Esta é uma mensagem de atenção", "Mensagem: Atenção", JOptionPane.WARNING_MESSAGE);
+
+- Outro tipo de caixa disponível, são as de opção (com botão: Sim, Não, OK...) - showConfirmDialog:
+  - sintaxe:
+    public int JOptionPane.showConfirmDialog(Component pai, Object mensagem [, String titulo] [, int tipoOpção] [, int tipoMensagem] [, Icon icone]);
+
+  - tipoOpção pode ser:
+    - JOptionPane.DEFAULT_OPTION
+    - JOptionPane.YES_NO_OPTION
+    - JOptionPane.YES_NO_CANCEL_OPTION
+    - JOptionPane.OK_CANCEL_OPTION
+
+  - Retorno:
+    - JOptionPane.YES_OPTION
+    - JOptionPane.NO_OPTION
+    - JOptionPane.CANCEL_OPTION
+    - JOptionPane.OK_OPTION
+    - JOptionPane.CLOSED_OPTION
+
+  - Exemplo:
+    - int resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Responda", JOptionPane.YES_NO_OPTION);
+    - resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Responda", JOptionPane.YES_NO_CANCEL_OPTION);
+    - resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Responda", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+
+- Temos também a possibilidade de fazer entrada de dados através das caixas de texto - showInputDialog:
+  - Sintaxe:
+    public String JOptionPane.showInputDialog([Component pai], Object mensagem [, String titulo] [, int tipoMensagem]);
+
+  - Exemplos:
+    - String valor = JOptionPane.showInputDialog(null, "Mensagem", "Título da janela", Tipo da mensagem);
+    - String nome = JOptionPane.showInputDialog(null, "Qual o seu nome?", "Entrada de dados", JOptionPane.QUESTION_MESSAGE);
+    - String site = JOptionPane.showInputDialog(null, "Digite o seu site:", "http://www.dantonjr.com.br");
+
+- Exemplo usando um ícone personalizado:
+	public static void main(String[] args)
+	{
+		ImageIcon icone = new ImageIcon("C:\\Arquivos de programas\\Java\\docs\\images\\jws-dukeonly.gif");
+		int resposta = JOptionPane.showConfirmDialog(null, "Está vendo a figura?", "Personalizada", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, icone);
+	}
+
+- Abaixo um código exemplificando os conceitos acima:
+
+	public static void main(String[] args)
+	{
+		System.out.println("Tipos de mensagens");
+		JOptionPane.showMessageDialog(null, "Esta é uma mensagem informativa", "Mensagem: Informativa", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Esta é uma mensagem de erro", "Mensagem: Erro", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Esta é uma mensagem plana", "Mensagem: Plana", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Esta é uma mensagem de questionamento", "Mensagem: Questionamento", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Esta é uma mensagem de atenção", "Mensagem: Atenção", JOptionPane.WARNING_MESSAGE);
+		System.out.println("Entrada de dados (alguns exemplos)");
+		int resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Responda", JOptionPane.YES_NO_OPTION);
+		if (resposta == JOptionPane.YES_OPTION)
+		{
+			System.out.println("Você clicou Sim...");
+		}
+		else
+		{
+			System.out.println("Você clicou Não...");
+		}
+		resposta = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Responda", JOptionPane.YES_NO_CANCEL_OPTION);
+		switch (resposta)
+		{
+			case JOptionPane.YES_OPTION : System.out.println("Você clicou Sim...");
+			                              break;
+			case JOptionPane.NO_OPTION : System.out.println("Você clicou Não...");
+                                         break;
+			case JOptionPane.CANCEL_OPTION : System.out.println("Você clicou Cancela...");
+                                             break;
+		}
+		System.out.println("Entrada de dados (exemplos)");
+		String valor = JOptionPane.showInputDialog(null, "Qual o valor de entrada?", "Entrada de dados", JOptionPane.QUESTION_MESSAGE);
+		System.out.println("O valor digitado foi....: " + valor);
+	}
+
+- Mostrar uma lista de textos na tela:
+
+	public static void main(String[] args)
+	{
+		StringBuffer lista = new StringBuffer("");
+		for (int i = 0; i < 100; i++) {
+			lista.append("Elemento: " + i + "\n");
+		}
+		String literal = lista.toString();
+		JTextArea area = new JTextArea(literal);
+		JScrollPane scroll = new JScrollPane(area);
+		scroll.setPreferredSize(new Dimension(400, 300));
+		JOptionPane.showMessageDialog(null, scroll);
+	}

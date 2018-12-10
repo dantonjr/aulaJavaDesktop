@@ -1,0 +1,167 @@
+Métodos Abstratos
+
+- Criar um pacote edu.senai.figura
+
+- Criar uma classe abstrata FiguraGeometrica
+  - Implementar o atributo:
+    - private String cor;
+  - Implementar os métodos get e set
+  - Declarar os métodos abstratos (não terão implementação nesta classe):
+    - public abstract double getPerimetro();
+    - public abstract double getArea();
+
+- Criar uma classe Quadrado que herda FiguraGeometrica (extends), faça isso na tela de criação de classes do Eclipse, e note a implementação automática dos métodos getArea() e getPerimetro() - O return do método é 0 por padrão.
+  - Declarar o atributo:
+    - private double lado;
+    - Implementar os métodos get e set
+    - Alterar o método getArea() para:
+      - return Math.pow(this.getLado(), 2);
+	public double getArea()
+	{
+		return Math.pow(this.getLado(), 2);
+	}
+
+    - Alterar o método getPerimetro() para:
+      - return (4 * this.getLado());
+	public double getPerimetro()
+	{
+		return (4 * this.getLado());
+	}
+
+    - Sobrescrever o método toString() da classe para retornar o nome do objeto:
+	public String toString()
+	{
+		return "Quadrado";
+	}
+
+- Criar uma classe Retangulo que herda de FiguraGeometrica;
+  - Declarar os atributos:
+    - private double base;
+    - private double altura;
+  - Implementar os métodos get e set
+    - Alterar o método getArea() para:
+      - return this.getBase() * this.getAltura();
+	public double getArea()
+	{
+		return this.getBase() * this.getAltura();
+	}
+
+    - Alterar o método getPerimetro() para:
+      - return ((2 * this.getBase()) + (2 * this.getAltura()));
+	public double getPerimetro()
+	{
+		return ((2 * this.getBase()) + (2 * this.getAltura()));
+	}
+
+    - Sobrescrever o método toString() da classe para retornar o nome do objeto.
+
+- Criar uma classe Circulo que herda de FiguraGeometrica;
+  - Declarar o atributo:
+    - private double raio;
+  - Implementar os métodos get e set
+    - Alterar o método getArea() para:
+      - return (Math.PI * Math.pow(this.getRaio(), 2));
+	public double getArea()
+	{
+		return (Math.PI * Math.pow(this.getRaio(), 2));
+	}
+
+    - Alterar o método getPerimetro() para:
+      - return (2 * Math.PI * this.getRaio());
+	public double getPerimetro()
+	{
+		return (2 * Math.PI * this.getRaio());
+	}
+
+    - Sobrescrever o método toString() da classe para retornar o nome do objeto e alguns atributos:
+      - return "Círculo\n\tRaio....: " + this.getRaio() + "\n\tÁrea....: " + this.getArea() + "\n\tCor.....: " + this.getCor();
+
+- Implementar uma classe para testar o uso dos objetos acima (CadastraFigura).
+  - Método montaMenu():
+	public static void montaMenu()
+	{
+		System.out.println("\n-----");
+		System.out.println("Menu principal.");
+		System.out.println("Digite:");
+		System.out.println("   1 para Cadastrar Quadrado.");
+		System.out.println("   2 para Cadastrar Círculo.");
+		System.out.println("   3 para Cadastrar Retângulo.");
+		System.out.println("   4 para Verificar a área.");
+		System.out.println("   5 para Verificar o perímetro.");
+		System.out.println("   6 para Sair.\n");
+		System.out.print("Informe a opção desejada....: ");
+	}
+
+  - Método main():
+	public static void main(String[] args) throws NumberFormatException, IOException
+	{
+		Quadrado quadrado = new Quadrado();
+		Circulo circulo = new Circulo();
+		Retangulo retangulo = new Retangulo();
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		montaMenu();
+		int opcao = Integer.parseInt(teclado.readLine());
+		String cor;
+		while (opcao != 6)
+		{
+			switch (opcao)
+			{
+				case 1: System.out.println("Quadrado");
+						System.out.print("   Informe a cor.....: ");
+						cor = teclado.readLine();
+						System.out.print("   Informe o lado...: ");
+						quadrado.setLado(Float.parseFloat(teclado.readLine()));
+						quadrado.setCor(cor);
+						break;
+				case 2: System.out.println("Círculo"); 
+						System.out.print("   Informe a cor.....: ");
+						cor = teclado.readLine();
+						System.out.print("   Informe o raio...: ");
+						circulo.setRaio(Float.parseFloat(teclado.readLine()));
+						circulo.setCor(cor);
+						break;
+				case 3: System.out.println("Retângulo");
+						System.out.print("   Informe a cor.....: ");
+						cor = teclado.readLine();
+						System.out.print("   Informe a base...: ");
+						retangulo.setBase(Float.parseFloat(teclado.readLine()));
+						System.out.print("   Informe a altura.: ");
+						retangulo.setAltura(Float.parseFloat(teclado.readLine()));
+						retangulo.setCor(cor);
+						break;
+				case 4: System.out.println("Áreas:");
+						System.out.println("  Círculo...: " + circulo.getArea() + " Cor : " + circulo.getCor());
+						System.out.println("  Quadrado..: " + quadrado.getArea() + " Cor : " + quadrado.getCor());
+						System.out.println("  Retangulo.: " + retangulo.getArea() + " Cor : " + retangulo.getCor());
+						break;
+				case 5: System.out.println("Perímetros:");
+						System.out.println("  Círculo...: " + circulo.getPerimetro() + " Cor : " + circulo.getCor());
+						System.out.println("  Quadrado..: " + quadrado.getPerimetro() + " Cor : " + quadrado.getCor());
+						System.out.println("  Retangulo.: " + retangulo.getPerimetro() + " Cor : " + retangulo.getCor());
+						break;
+				default: System.out.println("Opção inválida"); 
+						break;
+			}
+			montaMenu();
+			opcao = Integer.parseInt(teclado.readLine());
+		}
+	}
+
+- Criar o Objeto Triangulo, as fórmulas para manipulação do mesmo são:
+  - Perímetro
+     p = a + b + c
+
+  - Semi-perímetro
+     sp = (a + b + c)
+          -----------
+               2
+
+  - Área
+          ________________________________
+     a = V p . (p - a) . (p - b) . (p - c)
+
+3 lados iguais, equilátero
+2 lados iguais, isósceles
+3 lados diferentes, escaleno
+
+Para formar um triângulo nenhum dos lados pode ser igual a zero e um lado não pode ser maior que a soma dos outros dois lados. 

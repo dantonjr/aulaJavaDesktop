@@ -1,0 +1,106 @@
+Instalação do Java
+  - Acesse http://java.sun.com/javase/downloads/index.jsp
+  - Baixe o arquivo JDK 8 (update xxx)
+  - Execute o arquivo seguindo o passo-a-passo
+
+Documentação do Java
+  - Acesse http://java.sun.com/javase/downloads/index.jsp
+  - Baixe o arquivo de documentação do Java.
+  - Descompacte o arquivo, que gera um monte de arquivos html. Acesse através do index.
+
+Instalação do Eclipse
+  - Acesse http://www.eclipse.org
+  - Baixe a última versão do eclipse (com suporte a Java)
+  - Para instalar, basta descompactar o arquivo que é um zip
+  - Execute o Eclipse
+
+Seleção do Workspace
+  - Selecione uma pasta para ser o workspace
+  - Se necessário mudar para o workspace:
+    - File/Switch Workspace...
+
+Criação do Projeto Java
+  - File/New/Project...
+  - Na janela que se abre, escolha a opção "Java Project"
+  - Clique em Next
+  - Dê um nome ao projeto e selecione a versão do Java
+  - Clique em Finish
+
+Criação do Source Folder
+  - Selecione o nome do projeto
+  - File/New/Source Folder
+  - Na janela que se abre, selecione o nome do folder, geralmente repositorio
+
+Criação do Pacote
+  - Selecione o source folder
+  - File/New/Package
+  - Na janela que se abre, dê o nome ao pacote, são exemplos de nomes:
+       com.newmarket.estacionamento
+       edu.senai.pessoa
+       gov.receitafederal.ir
+       org.mataatlantica.animais.silvestres
+
+Criação da Classe
+  - Selecione o pacote
+  - File/New/Class
+  - Na janela que se abre, dê um nome a classe (lembre-se que nomes de classes iniciam por maiúsculo)
+  - Na mesma janela, marque a geração do método main de forma automática (caso essa classe seja executada)
+
+Exemplo Simples
+  - Para mostrar uma mensagem no console, use o comando
+      System.out.println("Olá Mundo!");
+    dentro do método main, use o sysout para preenchimento automático
+
+Executando a Classe
+  - Mostre o Console caso não esteja visível:
+    - Window/Show View/Console
+  - Clique com o botão direito sobre a classe e escolha a opção Run As/Java Application
+  - Verifique o resultado no Console
+
+Passando Parâmetros para uma Classe
+  - Clique com o botão direito sobre a classe e escolha a opção Run As/Run...
+  - Na janela que se abre, selecione a guia Arguments
+  - Na caixa Program arguments, coloque os parâmetros que serão passados ao programa
+
+// O for abaixo mostra todos os parâmetros passados
+
+    for (int i = 0; i < args.length; i++)
+    {
+      System.out.println("O argumento " + i + " é: " + args[i]);
+    }
+
+Estrutura Criada
+
+            +---------------------+
+            |                     |
+            |     workspace       |   Repositório que pode conter vários projetos
+            |                     |
+            +----------.----------+
+                       |
+                       |
+            +----------V----------+
+            |                     |
+            |    Projeto Java     |   É o próprio projeto em si que contém os arquivos correlatos
+            |                     |
+            +----------.----------+
+                       |
+                       |
+            +----------V----------+
+            |                     |
+            |    Source Folder    |   Classes Java devem estar nos Source Folder
+            |                     |
+            +----------.----------+
+                       |
+                       |
+            +----------V----------+
+            |                     |
+            |       Pacote        |   Agrupa as classes por afinidade
+            |                     |
+            +----------.----------+
+                       |
+                       |
+            +----------V----------+
+            |                     |
+            |       Classes       |  Contém os atributos e métodos
+            |                     |
+            +---------------------+

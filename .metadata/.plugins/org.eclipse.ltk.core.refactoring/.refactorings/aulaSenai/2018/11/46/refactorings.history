@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;edu.senai.a24.dp.singleton.AlgoSingleton.mensagem&apos; in &apos;edu.senai.a24.dp.singleton.AlgoSingleton&apos;&#x0D;&#x0A;- Original project: &apos;aulaSenai&apos;&#x0D;&#x0A;- Original element: &apos;edu.senai.a24.dp.singleton.AlgoSingleton.mensagem&apos;&#x0D;&#x0A;- Getter method name: &apos;getMensagem&apos;&#x0D;&#x0A;- Setter method name: &apos;setMensagem&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;mensagem&apos;" flags="589830" getter="getMensagem" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;edu.senai.a24.dp.singleton{AlgoSingleton.java[AlgoSingleton^mensagem" insertion="1" setter="setMensagem" stamp="1542142907831" version="1.0" visibility="1"/>
+</session>

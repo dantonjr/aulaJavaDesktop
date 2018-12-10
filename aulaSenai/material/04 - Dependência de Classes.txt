@@ -1,0 +1,57 @@
+Dependência de classes
+- Criar um pacote:
+  - edu.senai.pessoa
+
+- Implemente uma classe Pessoa sem o método main
+- Declare os atributos:
+  - private char sexo;
+  - private String nome;
+  - private int idade;
+  - private float salario;
+- Faça a implementação dos métodos get e set dos atributos:
+  - Botão direito do mouse sobre a classe.
+  - Escolha a opção Source/Generate Getters and Setters.
+  - Na janela que se abre, marque os atributos (observe que o get e set devem ser marcados), clique em OK.
+  - Observe os métodos gerados.
+
+- Crie uma classe UsaPessoa com a implementação do método main:
+  - Crie um objeto do tipo pessoa
+    - Pessoa pessoa = new Pessoa();
+  - Atribua os valores aos atributos usando o método Set correspondente:
+    - pessoa.setIdade(10);
+    - pessoa.setNome("João da Silva");
+    - pessoa.setSalario((float) 1234.90);
+    - pessoa.setSexo('M');
+  - Verifique os valores setados através do método Get:
+    - System.out.println("Os dados são:");
+    - System.out.println("\tNome....: " + pessoa.getNome());
+    - System.out.println("\tIdade...: " + pessoa.getIdade());
+    - System.out.println("\tSexo....: " + pessoa.getSexo());
+    - System.out.println("\tSalário.: " + pessoa.getSalario());
+
+- Alterando o comportamento dos métodos:
+  - Altere o comportamento do método getSexo para sempre retornar maiúsculo:
+    - return Character.toUpperCase(sexo);
+  - Altere o método setNome para já armazenar o nome em maiúsculo:
+    - this.nome = nome.toUpperCase();
+
+- Altere a classe UsaPessoa para que leia os dados do teclado, em seguida sete os valores do objeto e faça a verificação no final.
+
+  	public static void main(String[] args) throws IOException
+	{
+  		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+		Pessoa pessoa = new Pessoa();
+		System.out.println("Informe o nome da pessoa..: ");
+		pessoa.setNome(teclado.readLine());
+		System.out.println("Informe o salário.........: ");
+		pessoa.setSalario((float) Float.parseFloat(teclado.readLine()));
+		System.out.println("Informe o sexo............: ");
+		pessoa.setSexo(teclado.readLine().charAt(0));
+		System.out.println("Informe a idade...........: ");
+		pessoa.setIdade(Integer.parseInt(teclado.readLine()));
+		System.out.println("Os dados da pessoa são:");
+		System.out.println("\tNome.....: " + pessoa.getNome());
+		System.out.println("\tIdade....: " + pessoa.getIdade());
+		System.out.println("\tSalário..: " + pessoa.getSalario());
+		System.out.println("\tSexo.....: " + pessoa.getSexo());
+	}

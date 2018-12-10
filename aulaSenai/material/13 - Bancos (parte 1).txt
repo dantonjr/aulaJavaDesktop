@@ -1,0 +1,40 @@
+- Criar um pacote: edu.senai.banco;
+
+- Criar uma classe ContaCorrente:
+  - Implementar os seguintes atributos:
+    - private int numero;
+    - private String titular;
+    - private String senha;
+    - private double saldo;
+  - Implementar os métodos get e set.
+
+- Criar uma classe Agencia:
+  - Implementar os seguintes atributos:
+    - private String numeroAg;
+    - private Map contas;
+    - private int contaConta = 1; // Inicializa a primeira conta de cada agência
+  - Importar os pacotes do java.util responsáveis pelo HashMap
+  - Implementar os métodos get e set (o atributo contaConta não precisa)
+  - Implementar o construtor da classe Agencia para criar o HashMap:
+	public Agencia()
+	{
+		this.contas = new HashMap();
+	}
+
+  - Implementar o método adicionaConta:
+	public void adicionaConta(ContaCorrente conta)
+	{
+		this.contas.put(new Integer(contaConta), conta);
+	}
+
+  - Implementar o método criarConta
+	public int criarConta(String titCta, String senha, double saldo)
+	{
+		ContaCorrente c = new ContaCorrente();
+		c.setNumero(contaConta);
+		c.setSaldo(saldo);
+		c.setTitular(titCta);
+		c.setSenha(senha);
+		this.adicionaConta(c); // Adiciona a conta criada no HashMap de contas
+		return contaConta++;
+	}

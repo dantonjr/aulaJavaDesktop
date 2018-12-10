@@ -1,0 +1,151 @@
+Conceitos:
+
+- A -
+
+  * Abstração (abstract): Exemplo: public abstract class Veiculoveja{}
+    Veja Classes abstratas e concretas para detalhes.
+
+  * Agregação: Tipo de relacionamento com características todo-parte, onde existe um grau de coesão entre o todo e as partes menos intenso, podendo haver certo grau de independência entre eles (todo e as partes).
+
+  * Associação: São relacionamentos estruturais entre instâncias e especificam que objetos de uma classe estão ligados a objetos de outras classes. A associação pode existir entre classes ou entre objetos. Uma associação entre a classe Professor e a classe disciplina (um professor ministra uma disciplina) significa que uma instância de Professor (um professor específico) vai ter uma associação com uma instância de Disciplina. Esta relação significa que as instâncias das classes são conectadas, seja fisicamente ou conceitualmente. Uma associação é um vínculo que permite que objetos de uma ou mais classes se relacionem. Através destes vínculos é possível que um objeto convoque comportamentos e estados de outros objetos.
+    - As associações podem ser:
+      - unárias: quando a associação ocorre entre objetos de uma mesma classe.
+      - binárias: quando a associação ocorre entre dois objetos de classes distintas.
+      - múltiplas: quando a associação ocorre entre mais de dois objetos.
+    - Cada associação possui características de:
+      - cardinalidade ou multiplicidade: determina quantos objetos no sistema são possíveis em cada vértice da associação.
+      - navegação: se é possível para cada objeto acessar outro objeto da mesma associação.
+
+  * Atributo: Um atributo representa uma propriedade que todos os objetos da classe têm (por exemplo, todos os cachorros tem pêlo, orelhas, altura, etc. Mas cada objeto terá valores particulares para seus atributos (alguns cachorros são mais baixos, outros são maiores, etc.). Uma classe pode ter qualquer número de atributos. Sugere-se capitalizar todas as primeiras letras de cada palavra no nome menos a primeira palavra (ex.: "nome", "nomeCachorro"). Os atributos também são conhecidos como variáveis de classe, e podem ser divididos em dois tipos básicos: atributos de instância e de classe. Os valores dos atributos de instância determinam o estado de cada objeto. Um atributo de classe possui um estado que é compartilhado por todos os objetos de uma classe. Atributos de classe podem ser chamados também de atributos estáticos ou constantes.
+    - Os atributos podem ser:
+      - public: Terá livre acesso podendo ser alterado diretamente pelos Objetos.
+      - protected: Significa que estes atributos só poderão ser alterados pela classe pai ou pelas classes filhas.
+      - private: São os atributos que só podem ser alterados pelos métodos da classe pai.
+      - static: Significa que este atributo pertence somente a classe, sua forma de acesso é somente através da classe.
+      - final: É um valor que não pode ser alterado pela aplicação.
+
+- C -
+
+  * Classe: Em orientação a objeto, uma classe abstrai um conjunto de objetos com características similares. Uma classe define o comportamento de seus objetos através de métodos e os estados possíveis destes objetos através de atributos. Em outros termos, uma classe descreve os serviços providos por seus objetos e quais informações eles podem armazenar.
+	public class NomeDaClasse
+	{
+		// Atributos.
+			...
+		// Métodos construtores.
+			...
+		// Métodos set() e get().
+			...
+		// Métodos de trabalho.
+			...
+	}
+
+  * Classes abstratas e concretas: Uma classe abstrata é desenvolvida para representar entidades e conceitos abstratos. A classe abstrata é sempre uma classe pai que não possui instâncias. Ela define um modelo (template) para uma funcionalidade e fornece uma implementação incompleta - a parte genérica dessa funcionalidade - que é compartilhada por um grupo de classes derivadas. Cada uma das classes derivadas completa a funcionalidade da classe abstrata adicionando um comportamento específico. Uma classe abstrata normalmente possui métodos abstratos. Esses métodos são implementados nas suas classes derivadas concretas com o objetivo de definir o comportamento específico. O método abstrato define apenas a assinatura do método e, portanto, não contém código. Por outro lado, as classes concretas implementam todos os seus métodos e permitem a criação de instâncias. Uma classe concreta não possui métodos abstratos e, geralmente, quando utilizadas neste contexto, são classes derivadas de uma classe abstrata.
+
+  * Composição: Relacionamento entre um elemento (o todo) e outros elementos (as partes) onde as parte só podem pertencer ao todo e são criadas e destruídas com ele, existe um alto grau de coesão entre o todo e as partes, com total grau de dependência entre eles (todo e as partes). Desta forma, se o todo não existir, as partes também não existirão.
+
+  * Construtor: Define o comportamento no momento da criação de um objeto de uma classe (inicialização do objeto), é um método chamado assim que uma nova instância do objeto for criada (comando new).
+
+- D -
+
+  * Dependência: São relacionamentos de utilização no qual uma mudança na especificação de um elemento pode alterar a especificação do elemento dependente. A dependência entre classes indica que os objetos de uma classe usam serviços dos objetos de outra classe.
+
+- E -
+
+  * Encapsulamento: Limitação do acesso a atributos de uma classe exclusivamente através de seus métodos. Para isso, as linguagens orientadas a objeto oferecem limitadores de acesso para cada membro de uma classe. Tipicamente os limitadores de acesso são:
+    - Público (public): o membro pode ser acessado por qualquer classe. Os membros públicos de uma classe definem sua interface.
+    - Protegido (protected): o membro pode ser acessado apenas pela própria classe e suas sub-classes.
+    - Privado (private): o membro pode ser acessado apenas pela própria classe.
+
+    - Abaixo, a classe Pessoa permite o acesso ao atributo nome somente através dos métodos setNome e getNome.
+	public class Pessoa
+	{
+		private String nome;
+
+		public String getNome()
+		{
+			return nome;
+		}
+
+		public void setNome(String nome)
+		{
+			this.nome = nome;
+		}
+	}
+
+  * Especialização: Ocorre quando se herda uma classe e a partir desta são adicionados novos atributos e métodos fazendo assim uma especialização. Veja Herança para mais detalhes.
+
+  * Evento: Define um ponto em que o objeto pode chamar outros procedimentos de acordo com seu comportamento e estado interno.
+
+- F -
+
+  * Final: São as classes terminais/finais que através dela não podem ser criadas outras classes, ou seja, não podem ser herdadas ou se preferir especializadas.
+
+- G -
+
+  * Garbage Collector: Coleta automática de Lixo, é um processo executado pela Java Virtual Machine com o objetivo de desalocar objetos que não estão mais sendo utilizados após o processamento.
+
+  * Generalização (herança: simples ou composta): Relacionamento entre um elemento mais geral e um mais específico. Onde o elemento mais específico herda as propriedades e métodos do elemento mais geral. A relação de generalização também é conhecida como herança no modelo a objetos. Como a relação de dependência, ela existe só entre as classes. Um objeto particular não é um caso geral de um outro objeto, só conceitos (classes no modelo a objetos) são generalização de outros conceitos.
+
+- H -
+
+  * Herança: É um relacionamento pelo qual uma classe, chamada de sub-classe, herda todos comportamentos e estados possíveis de outra classe, chamada de super-classe ou classe base. É permitido que a sub-classe extenda os comportamentos e estados possíveis da super-classe (por isso este relacionamento também é chamado de extensão). Essa extensão ocorre adicionando novos membros a sub-classe, como novos métodos e atributos. É também possível que a sub-classe altere os comportamentos e estados possíveis da super-classe. Neste caso, a sub-classe sobrescreve membros da super-classe, tipicamente métodos.
+
+- I -
+
+  * Instância: Uma instância de uma classe é um novo objeto criado a partir desta classe com o operador new. Instanciar uma classe é criar um novo objeto do mesmo tipo da classe.
+
+  * Interface: É a declaração de um conjunto de constantes e métodos sem qualquer implementação, usando a palavra implements. É o conjunto de requisições que um objeto pode atender.
+
+- M -
+
+  * Mensagem: É o meio de comunicação entre os objetos, chamadas para métodos são realizadas através de mensagens.
+
+  * Métodos: Métodos são ações que implementam uma operação. Uma classe pode ter qualquer número de métodos e dois métodos em duas classes podem ter o mesmo nome. Todos os métodos que vão implementar a operação tem que respeitar exatamente a assinatura dela (mesmo nome, mesmo número de atributo, com os mesmo tipos e o mesmo ordem). Um método não pode acrescentar ou cortar um parâmetro. Isso seria um violação do polimorfismo. Para mandar a mensagem corretamente, teríamos que saber qual é a classe do objeto (cada classe tendo método com assinatura diferente). O que é possível, no caso de cortar um parâmetro, é simplesmente ignorá-lo na implementação. Os métodos determinam o comportamento dos objetos de uma classe e são análogos à funções ou procedimentos da programação estruturada.
+    - Os métodos podem ser declarados como:
+      - public: O método pode ser utilizado por qualquer objeto e classe.
+      - protected: Só pode ser acessado pelas classes relacionadas.
+      - private: Somente objetos/métodos da própria classe podem manipulá-lo.
+      - static: Define um método da classe. Seu acesso é somente através da classe.
+      - final: Proibe a redeclaração do método em classes derivadas.
+    - Os métodos podem ser:
+      - Construtor que é chamado sempre quando um objeto é criado, tendo a função de inicializar os atributos do objeto.
+      - Métodos set() e get() que são responsáveis por determinar a "visibilidade" dos atributos tendo a funcionalidade de setar (set) e retornar (get) os valores dos atributos.
+      - Métodos de trabalho, que podem ser:
+        - Os métodos do objeto: São os responsáveis em trocar mensagens com o objeto desempenhando alguma funcionalidade.
+        - Os métodos da classe (static): São chamados pela classe e não mais pelos objetos, trocando então mensagens com classe.
+        - Métodos finais: Característica de não poder ser redefinido em classes derivadas.
+- O -
+
+  * Objeto: Representa uma entidade que pode ser física, conceitual ou de software. É uma abstração de algo que possui fronteira definida e significado para a aplicação. Dentro da terminologia das linguagens de programação, um objeto passa a existir a partir de um "molde". Este "molde", definido como classe do objeto, define os limites, seus atributos e suas funções. Podem ser criados vários objetos ou instâncias de uma classe. A vantagem do uso de objetos na programação é que estes permitem utilizar funções e atributos conhecidos (interface) sem necessidade de conhecimento sobre sua estrutura interna (encapsulamento). Para ilustrar : utilizamos o objeto "liquidificador" pressionando seus botões, mas não precisamos saber como funciona seu 'motor'. Se for necessário trocar o "motor", não será necessário alterar o modo de usá-lo.
+
+- P -
+
+  * Pacote: Tipicamente um pacote em Java contém as declarações de várias classes relacionadas. Cada pacote é representado por um diretório contendo vários arquivos com o mesmo cabeçário, indicando o nome do pacote, onde cada arquivo define uma ou mais classes que fazem parte do pacote. É semelhante ao conceito de biblioteca de funções. O package default é o java.lang.*; que é adicionado a todo arquivo java mesmo que o programador não o referencie. O .* diz ao java para incluir todas as classes do pacote.
+
+  * Polimorfismo: Permite que referências de tipos de classes mais abstratas representem o comportamento das classes concretas que referenciam. Assim, um mesmo método pode apresentar várias formas, de acordo com seu contexto (mesmo nome mas com funções diferentes). O polimorfismo é importante pois permite que a semântica de uma interface seja efetivamente separada da implementação que a representa. O termo polimorfismo é originário do grego e significa "muitas formas" (poli = muitas, morphos = formas).
+
+  * Programação Orientada a Objetos (POO): Este tipo de programação trata os elementos da linguagem de maneira semelhante aos objetos reais.
+
+  * Propriedade: Define o acesso a um estado do objeto.
+
+- S -
+
+  * Source Folder: Classes Java devem estar nos Source Folder.
+
+  * Superclasse: Todas as classes são criadas tendo outra como base. A classe que gerou a outra é chamada de superclasse. E fazemos referência a supercasse de uma classe usando a palavra extends. A classe gerada é chamada de subclasse. Toda classe tem uma subclasse. Quando não declaramos explicitamente a superclasse, a super default é a Object.
+
+- T -
+
+  * Threads: São fluxos de execução paralelos, executando tarefas diferentes. Em máquinas com dois ou mais processadores a execução pode ser simultânea e em máquinas com um único processador a execução será simulada, dividindo o tempo de processamento.
+
+- W -
+
+  * Workspace: Repositório que pode conter vários projetos.
+
+--- Dicas ---
+
+  * Sempre que possível use variáveis private.
+  * Nunca deixe de inicializar variáveis.
+  * Dividir classes grandes.
+  * Quando temos um programa composto por vários arquivos e o principal (aquele que contém o métod main) chama classes existentes nos demais, basta compilar o arquivo principal que os demais serão compilados.
+  * A palavra-chave this representa o objeto atual.
